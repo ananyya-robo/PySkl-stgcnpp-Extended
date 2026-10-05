@@ -3,6 +3,7 @@ import argparse
 import cv2
 import mmcv
 import numpy as np
+import sys
 import os
 import os.path as osp
 import shutil

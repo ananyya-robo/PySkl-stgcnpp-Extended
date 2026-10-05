@@ -3,6 +3,7 @@ import mmcv
 import numpy as np
 import random
 import warnings
+import torch
 from collections.abc import Sequence
 from torch.nn.modules.utils import _pair
 
@@ -405,7 +406,6 @@ class Resize:
         self.scale = scale
         self.keep_ratio = keep_ratio
         self.interpolation = interpolation
-
     def _resize_imgs(self, imgs, new_w, new_h):
         return [
             mmcv.imresize(
@@ -413,7 +413,9 @@ class Resize:
             for img in imgs
         ]
 
+
     @staticmethod
+
     def _resize_kps(kps, scale_factor):
         return kps * scale_factor
 
@@ -428,6 +430,8 @@ class Resize:
         assert len(scale_factor) == 2
         scale_factor = np.concatenate([scale_factor, scale_factor])
         return box * scale_factor
+
+
 
     def __call__(self, results):
         """Performs the Resize augmentation.

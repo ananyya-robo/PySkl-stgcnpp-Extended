@@ -130,3 +130,11 @@ examples/extract_diving48_skeleton/*pkl
 configs/gen_config.ipynb
 dev.ipynb
 test.ipynb
+
+/data/
+/work_dirs/
+/.work_dirs/
+*.pth
+*.pkl
+._*
+.DS_Store

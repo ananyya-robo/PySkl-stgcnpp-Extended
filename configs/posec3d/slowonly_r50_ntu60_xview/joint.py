@@ -20,7 +20,7 @@ model = dict(
     test_cfg=dict(average_clips='prob'))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/nturgbd/ntu60_hrnet.pkl'
+ann_file = 'dataset/ntu60_hrnet.pkl'
 left_kp = [1, 3, 5, 7, 9, 11, 13, 15]
 right_kp = [2, 4, 6, 8, 10, 12, 14, 16]
 train_pipeline = [
@@ -76,4 +76,4 @@ checkpoint_config = dict(interval=1)
 evaluation = dict(interval=1, metrics=['top_k_accuracy', 'mean_class_accuracy'], topk=(1, 5))
 log_config = dict(interval=20, hooks=[dict(type='TextLoggerHook')])
 log_level = 'INFO'
-work_dir = './work_dirs/posec3d/slowonly_r50_ntu60_xview/joint'
+work_dir = './work_dirs/posec3d/slowonly_r50_ntu60_xview/joint_lr04'

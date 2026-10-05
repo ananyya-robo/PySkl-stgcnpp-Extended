@@ -6,10 +6,14 @@ import os
 import os.path as osp
 import time
 import torch
+torch.autograd.set_detect_anomaly(True)
 import torch.distributed as dist
 from mmcv import Config
+#from mmengine.config import Config
 from mmcv import digit_version as dv
+#from mmengine.utils.dl_utils import TORCH_VERSION
 from mmcv.runner import get_dist_info, init_dist, set_random_seed
+#from mmengine.dist import get_dist_info,init_dist
 from mmcv.utils import get_git_hash
 
 from pyskl import __version__

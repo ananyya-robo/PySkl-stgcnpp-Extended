@@ -20,7 +20,7 @@ model = dict(
     test_cfg=dict(average_clips='prob'))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/ucf101/ucf101_hrnet.pkl'
+ann_file = 'dataset/ucf101_hrnet.pkl'
 left_kp = [1, 3, 5, 7, 9, 11, 13, 15]
 right_kp = [2, 4, 6, 8, 10, 12, 14, 16]
 train_pipeline = [
@@ -67,15 +67,15 @@ data = dict(
     val=dict(type=dataset_type, ann_file=ann_file, split='test1', pipeline=val_pipeline),
     test=dict(type=dataset_type, ann_file=ann_file, split='test1', pipeline=test_pipeline))
 # optimizer
-optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0003)  # this lr is used for 8 gpus
+optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0003)  # this lr is used for 8 gpus
 optimizer_config = dict(grad_clip=dict(max_norm=40, norm_type=2))
 # learning policy
 lr_config = dict(policy='step', step=[9, 11])
-total_epochs = 12
+total_epochs = 20
 checkpoint_config = dict(interval=1)
 evaluation = dict(interval=1, metrics=['top_k_accuracy', 'mean_class_accuracy'], topk=(1, 5))
 log_config = dict(interval=20, hooks=[dict(type='TextLoggerHook')])
 log_level = 'INFO'
-work_dir = './work_dirs/posec3d/slowonly_r50_ucf101_k400p/s1_joint'
+work_dir = './work_dirs/posec3d/slowonly_r50_ucf101_k400p/s1_joint_epoch20_lr0001'
 load_from = 'https://download.openmmlab.com/mmaction/skeleton/posec3d/k400_posec3d-041f49c6.pth'  # noqa: E501
 find_unused_parameters = True

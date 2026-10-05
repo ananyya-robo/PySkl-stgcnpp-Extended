@@ -6,7 +6,7 @@ model = dict(
     cls_head=dict(type='GCNHead', num_classes=60, in_channels=384))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/nturgbd/ntu60_hrnet.pkl'
+ann_file = 'dataset/ntu60_hrnet.pkl'
 train_pipeline = [
     dict(type='PreNormalize2D'),
     dict(type='GenSkeFeat', dataset='coco', feats=['j']),
@@ -57,4 +57,4 @@ log_config = dict(interval=100, hooks=[dict(type='TextLoggerHook')])
 
 # runtime settings
 log_level = 'INFO'
-work_dir = './work_dirs/msg3d/msg3d_pyskl_ntu60_xsub_hrnet/j'
+work_dir = './work_dirs/msg3d/msg3d_pyskl_ntu60_xsub_hrnet/j_epoch16_lr01'

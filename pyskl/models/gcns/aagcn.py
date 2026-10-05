@@ -52,7 +52,7 @@ class AAGCN(nn.Module):
                  in_channels=3,
                  base_channels=64,
                  data_bn_type='MVC',
-                 num_person=2,
+                 num_person=1,
                  num_stages=10,
                  inflate_stages=[5, 8],
                  down_stages=[5, 8],

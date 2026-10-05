@@ -1,0 +1,52 @@
+bash tools/dist_train.sh configs/stgcn++/stgcn++_ntu120_xsub_hrnet/j.py 1 --validate --test-last --test-best
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ntu120_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ntu120_xsub_hrnet/epoch_16_lr0001/best_top1_acc_epoch_16.pth 1
+
+python demo/demo_skeleton.py demo/ntu_sample.avi demo/demo.mp4 --config configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py --checkpoint work_dirs/stgcn++/stgcn++_ntu60_xsub_hrnet/epoch_16_lr0001/best_top1_acc_epoch_15.pth
+
+conda install -c conda-forge mmcv-full==1.6.0
+
+ CUDA Version: 12.2
+
+ pip install --upgrade mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.10/index.html
+ pip install mmcv==2.2.0 -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.3/index.html
+ conda create -n pyskl1 python==3.8 pytorch==1.10.0 torchvision==0.11.0 cudatoolkit=10.2 -c pytorch -y
+pip install mmcv-full==1.5.0 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.10/index.html
+
+python demo/demo_skeleton.py demo/ntu_sample.avi demo/demo.mp4 --config configs/stgcn++/stgcn++_ntu120_xsub_hrnet/j.py --checkpoint work_dirs/stgcn++/stgcn++_ntu120_xsub_hrnet/try1/epoch_1.pth
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ntu120_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ntu120_xsub_hrnet/try1/best_top1_acc_epoch_2.pth 1 --out pkl --eval top_k_accuracy mean_class_accuracy
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ntu120_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ntu120_xsub_hrnet/try1/best_top1_acc_epoch_2.pth 1
+
+bash tools/dist_train.sh configs/aagcn/aagcn_pyskl_ntu120_xsub_hrnet/j.py 1 --validate --test-last --test-best
+bash tools/dist_train.sh configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py 1 --validate --test-last --test-best
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ntu60_xsub_hrnet/epoch_16_lr0001/best_top1_acc_epoch_28.pth 1
+
+bash tools/dist_train.sh configs/posec3d/slowonly_r50_ucf101_k400p/s1_joint.py 1 --validate --test-last --test-best
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ucf101_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ucf101/j_lr0001/best_top1_acc_epoch_10.pth 1
+
+bash tools/dist_test.sh configs/aagcn/aagcn_pyskl_ucf101/j.py work_dirs/stgcn++/stgcn++_ucf101/j_lr0001/best_top1_acc_epoch_10.pth 1
+
+python demo/demo_skeleton.py demo/ntu_sample.avi demo/demo_stgcn_nut_1.mp4 --config configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py --checkpoint work_dirs/stgcn/stgcn_pyskl_ntu60_xsub_hrnet/j_lr01/best_top1_acc_epoch_29.pth
+bash tools/dist_train.sh configs/aagcn/aagcn_pyskl_ntu60_xsub_hrnet/j.py 1 --validate --test-last --test-best
+
+python demo/demo_skeleton.py demo/touch_head1.mp4 demo/result_touch_head1.mp4 --config configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py --checkpoint work_dirs/stgcn++/stgcn++_ntu60_xsub_hrnet/epoch_16_lr0001/best_top1_acc_epoch_28.pth
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ucf101_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ucf101/j_lr0001/best_top1_acc_epoch_10.pth 1
+
+bash tools/dist_test.sh configs/stgcn++/stgcn++_ntu60_xsub_hrnet/j.py work_dirs/stgcn++/stgcn++_ntu60_xsub_hrnet/epoch_16_lr0001/best_top1_acc_epoch_28.pth 1
+
+bash tools/dist_test.sh configs/aagcn/aagcn_pyskl_ntu60_xsub_hrnet/j.py work_dirs/aagcn/aagcn_pyskl_ntu60_xsub_hrnet/j_epoch_16_lr01/best_top1_acc_epoch_29.pth 1
+
+bash tools/dist_test.sh configs/aagcn/aagcn_pyskl_ucf101/j.py work_dirs/aagcn/aagcn_ucf101/j_lr001/best_top1_acc_epoch_26.pth 1
+
+bash tools/dist_test.sh configs/posec3d/slowonly_r50_ucf101_k400p/s1_joint.py work_dirs/posec3d/slowonly_r50_ucf101_k400p/s1_joint_epoch20_lr0001/best_top1_acc_epoch_17.pth 1
+
+bash tools/dist_test.sh configs/stgcn/stgcn_pyskl_ntu60_xsub_hrnet/j.py work_dirs/stgcn/stgcn_pyskl_ntu60_xsub_hrnet/j_lr01/best_top1_acc_epoch_29.pth 1
+
+bash tools/dist_test.sh configs/stgcn/stgcn_pyskl_ntu60_xsub_hrnet/j.py work_dirs/stgcn/stgcn_pyskl_ntu60_xsub_hrnet/j_lr01/best_top1_acc_epoch_29.pth 1
+
+bash tools/dist_test.sh configs/posec3d/c3d_light_ntu60_xsub/joint.py work_dirs/posec3d/c3d_light_ntu60_xsub/joint_lr04/best_top1_acc_epoch_24.pth 1
